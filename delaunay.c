@@ -66,18 +66,15 @@ int test_triangle (vec2* data, int N, int a, int b, int c) {
 
 // Run the test_triangle function to locate the Delaunay triangulation
 int main (int argc, char** argv) {
-    // expected input:
-    // file = filename
-    if (argc < 2) {
-        printf("Command usage: %s filename\n", argv[0]);
+    if (argc < 3) {
+        printf("Command usage: %s filename N\n", argv[0]);
         return 0;
     }
     // read data file
     FILE* fp;
     fp = fopen(argv[1], "r");
-    // get size of dataset from first line of data file
-    int N, i = 0;
-    fscanf(fp, "%d", &N);
+    int N = atoi(argv[2]);
+    int i = 0;
     // initialize dataset vector array
     vec2 data[N];
     // int i = 0;
